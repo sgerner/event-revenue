@@ -1,0 +1,201 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Event Revenue Worksheet</title>
+    <meta name="description" content="Calculate Revenue from Special Event">
+    <meta name="author" content="Steven Gerner">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <script type="text/javascript" src="js/script.js?v=1.0"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+
+<body>
+    <main class="inner">
+        <h1 class="title">Event Revenue Worksheet</h1>
+        <p class="intro">General Info.</p>
+        <form>
+            <fieldset id="details">
+                <div class="table-row">
+                    <label for="event">Event</label>
+                    <input type="text" id="event">
+                </div>
+                <div class="table-row">
+                    <label for="date">Date</label>
+                    <input type="date" id="date">
+                </div>
+                <div class="table-row">
+                    <label for="staff">Staff</label>
+                    <select id="staff">
+                        <option value="Matt">Matt</option>
+                        <option value="Tracy">Tracy</option>
+                    </select>
+                </div>            
+            </fieldset>
+            <fieldset id="cash">
+                <h2 class='section-header'>Cash Payments</h2>
+                <div id="cash-collected">
+                    <p class="instructions">At the end of the event, please enter the quantity of bills or coins in the register for each denomination.</p>
+                    <div class="table-header">
+                        <div class="column-label">Denomination</div>
+                        <div class="column-label">Quantity</div>
+                        <div class="column-label">Total</div>
+                    </div>
+                    <div class="table-row">
+                        <label for="100">$100</label>
+                        <input type="number" id="100" onchange="total(event)" onkeyup="total(event)">
+                        <div id="100-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="50">$50</label>
+                        <input type="number" id="50" onchange="total(event)" onkeyup="total(event)">
+                        <div id="50-result" class="fieldset-results" name="denomination" value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="20">$20</label>
+                        <input type="number" id="20" onchange="total(event)" onkeyup="total(event)" autofocus>
+                        <div id="20-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="10">$10</label>
+                        <input type="number" id="10" onchange="total(event)" onkeyup="total(event)">
+                        <div id="10-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="5">$5</label>
+                        <input type="number" id="5" onchange="total(event)" onkeyup="total(event)">
+                        <div id="5-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="1">$1</label>
+                        <input type="number" id="1" onchange="total(event)" onkeyup="total(event)">
+                        <div id="1-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="0.25">Quarter ($0.25)</label>
+                        <input type="number" id="0.25" onchange="total(event)" onkeyup="total(event)">
+                        <div id="0.25-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="0.50">Dime ($0.10)</label>
+                        <input type="number" id="0.10" onchange="total(event)" onkeyup="total(event)">
+                        <div id="0.10-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="0.05">Nickel ($0.05)</label>
+                        <input type="number" id="0.05" onchange="total(event)" onkeyup="total(event)">
+                        <div id="0.05-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-row">
+                        <label for="0.01">Penny ($0.01)</label>
+                        <input type="number" id="0.01" onchange="total(event)" onkeyup="total(event)">
+                        <div id="0.01-result" class="fieldset-results" name="denomination"  value=""></div>
+                    </div>
+                    <div class="table-results"><p>Total Cash in Register</p><div id="cash-total"></div></div>
+                </div>
+                <div id="cash-modifiers">
+                    <p class="instructions">Please enter your starting cash and any cash paid / removed prior to using this worksheet.</p>
+                    <div class="table-header">
+                        <div class="column-label">???</div>
+                        <div class="column-label">Total</div>
+                    </div>
+                    <div class="table-row">
+                        <label for="starting-cash">Starting Cash</label>
+                        <input type="number" id="starting-cash" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                    </div>
+                    <div class="table-row">
+                        <label for="cash-fee">Fees Paid in Cash</label>
+                        <input type="number" id="cash-fee" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                    </div>
+                    <div class="table-row">
+                        <label for="cash-other">Other Cash Expenses</label>
+                        <input type="number" id="cash-other" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                    </div>
+                </div>
+            </div>
+            </fieldset>
+            <fieldset id="other-collected">
+                <h2 class='section-header'>Other Payment Methods</h2>
+                <p class="instructions">Instructions.</p>
+                <div class="table-header">
+                    <div class="column-label">Payment method</div>
+                    <div class="column-label">Total Collected</div>
+                </div>
+                <div class="table-row">
+                    <label for="cash-total">Total Cash Payments</label>
+                    <div id="cash-total"></div>
+                </div>
+                <div class="table-row">
+                    <label for="event-total">Event Payments (e.g. EBT)</label>
+                    <input type="number" id="event-total" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                </div>
+                <div class="table-row">
+                    <label for="card-tips">Card Tips</label>
+                    <input type="number" id="card-tips" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                </div>
+                <div class="table-row">
+                        <label for="card-payments">Card Payments</label>
+                        <input type="number" id="card-payments" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                    </div>
+                <div class="table-row">
+                    <label for="pre-payments">Pre-Paid</label>
+                    <input type="number" id="pre-payments" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                </div>
+                <div class="table-results"><p>Total Earned</p><div id="event-total"></div></div>
+            </fieldset>
+            <fieldset id="event-fee-calculator" class="collapsible">
+                <h2 class='section-header'>Event Fee</h2>
+                <div class="table-row">
+                    <div class="label" value="0.10">10% of Revenue</div>
+                    <div class="value"></div>
+                </div>
+                <div class="table-row">
+                    <div class="label">10% &le; $500, 5% over $500</div>
+                    <div class="value"></div>
+                </div>
+            </fieldset>
+            <fieldset id="commission-calculator" class="collapsible">
+                <h2 class='section-header'>Commission</h2>
+                <p class="instructions">Calculates commission rate or guarenteed minimum, whichever is greater.</p>
+                <div class="table-row">
+                    <label for="commission-rate">Commission Rate</label>
+                    <select id="commission-rate">
+                        <option value="0.20" selected="selected">20%</option>
+                        <option value="0.25">25%</option>
+                    </select>
+                </div>
+                <div class="table-row">
+                    <label for="market-length">Market Length</label>
+                    <select id="market-length">
+                        <option value="3">3 Hours</option>
+                        <option value="4">4 Hours</option>
+                        <option value="5" selected="selected">5 Hours</option>
+                    </select>
+                </div>
+                <div class="table-row">
+                    <div id="commission-earned">
+                        <div class="label">Commission: </div>
+                        <div class="value"></div>
+                    </div>
+                    <div id="tip-earned">
+                        <div class="label">Tips: </div>
+                        <div class="value"></div>                        
+                    </div>
+                    <div id="total-pay">
+                        <div class="label">Total Pay: </div>
+                        <div class="value"></div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="output">
+                <button type="button" id="print">Print</button>
+                <button type="button" id="email">Email</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>
