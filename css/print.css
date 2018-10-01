@@ -1,0 +1,108 @@
+@media print {
+    @page {
+        margin: 4mm;
+        /* size: landscape;*/
+    }
+
+    :root {
+        --color-neutral: #000;
+        --color-dark: #000;
+        --color-emphasis: #000;
+        --color-accent: #000;
+    }
+
+    body {
+        font-size: 12px;
+    }
+
+    p.instructions {
+        display: none;
+    }
+
+    .section-header {
+        padding: 0;
+        border: none;
+        font-weight: 600;
+        margin: 0.5rem 0;
+    }
+
+    main {
+        background: none;
+        grid-template-columns: 20rem 20rem;
+        grid-template-areas: "a b" "a c" "d c";
+        align-items: start;
+    }
+
+    fieldset {
+        border: 1px solid black;
+        margin: 1rem auto;
+    }
+
+    fieldset#details .table-row {
+        height: unset;
+    }
+
+    fieldset#cash {
+        grid-area: a;
+    }
+
+    fieldset#cash-changes {
+        grid-area: d;
+    }
+
+    fieldset#event-fee-calculator {
+        display: none;
+    }
+
+    fieldset#commission-calculator {
+        grid-area: c;
+    }
+
+    #head {
+        background: none;
+    }
+
+    .table-header {
+        background: none;
+        border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+
+    .table-row {
+        height: 2rem;
+        border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+
+    input, select {
+        background: none;
+        font-size: unset;
+        height: unset;
+        text-align: right;
+    }
+
+    fieldset#details select, fieldset#details input {
+        font-size: 1.1rem;
+    }
+
+    .fieldset-results {
+        background: none;
+    }
+
+    .table-results {
+        background: none;
+        font-size: 1rem;
+        padding: .75rem 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    fieldset#output {
+        display: none;
+    }
+
+    label, .label {
+        font-size: 1rem;
+        font-weight: unset;
+        justify-self: start;
+        margin-left: 1rem;
+    }
+}
