@@ -13,10 +13,9 @@
 </head>
 
 <body>
-    <main class="inner">
-        <h1 class="title">Event Revenue Worksheet</h1>
-        <p class="intro">General Info.</p>
-        <form>
+    <form>
+        <div id="head">
+            <h1 class="title">Event Revenue Worksheet</h1>
             <fieldset id="details">
                 <div class="table-row">
                     <label for="event">Event</label>
@@ -37,9 +36,11 @@
                     </select>
                 </div>            
             </fieldset>
+        </div>
+        <main>
             <fieldset id="cash">
                 <h2 class='section-header'>Cash Payments</h2>
-                <div id="cash-collected">
+                <div id="cash-collected" class="three-column">
                     <p class="instructions">At the end of the event, please enter the quantity of bills or coins in the register for each denomination.</p>
                     <div class="table-header">
                         <div class="column-label">Denomination</div>
@@ -98,7 +99,10 @@
                     </div>
                     <div class="table-results"><p>Total Cash in Register</p><div id="ending-cash-total" class="cash-calculator" value="">0</div></div>
                 </div>
+            </fieldset>
+            <fieldset id='cash-changes'>
                 <div id="cash-modifiers">
+                    <h2 class='section-header'>Cash In & Out</h2>
                     <p class="instructions">Please enter your starting cash and any cash paid / removed prior to using this worksheet.</p>
                     <div class="table-row">
                         <label for="starting-cash">Starting Cash</label>
@@ -116,18 +120,18 @@
             </div>
             </fieldset>
             <fieldset id="other-collected">
-                <h2 class='section-header'>Other Payment Methods</h2>
-                <p class="instructions">Instructions.</p>
+                <h2 class='section-header'>All Payments</h2>
+                <p class="instructions">Please enter the total collected for each type of payment.</p>
                 <div class="table-header">
-                    <div class="column-label">Payment method</div>
-                    <div class="column-label">Total Collected</div>
+                    <div class="column-label">Payment Method</div>
+                    <div class="column-label">Total</div>
                 </div>
                 <div class="table-row">
                     <label for="cash-total">Total Cash Payments</label>
-                    <div id="cash-total" class="total-calculator" value="0">$ 0.00</div>
+                    <div id="cash-total" class="fieldset-results total-calculator" value="0">$ 0.00</div>
                 </div>
                 <div class="table-row">
-                    <label for="event-total">Event Payments (e.g. EBT)</label>
+                    <label for="event-total">Event Card (e.g. EBT)</label>
                     <input type="number" id="event-total" class='total-calculator' placeholder="$0.00">
                 </div>
                 <div class="table-row">
@@ -142,13 +146,13 @@
                     <label for="pre-payments">Pre-Paid</label>
                     <input type="number" id="pre-payments" class='total-calculator' placeholder="$0.00">
                 </div>
-                <div class="table-results"><p>Total Earned</p><div id="event-revenue" value=''>$ 0.00</div></div>
+                <div class="table-results"><p>Revenue</p><div id="event-revenue" value=''>$ 0.00</div></div>
             </fieldset>
             <fieldset id="event-fee-calculator" class="collapsible">
                 <h2 class='section-header'>Event Fee</h2>
                 <p class="instructions">Please select a fee structure. This calculation does not take into consideration any minimum event fees that may apply.</p>
                 <div class="table-row">
-                        <label for="event-fee-structure">Event Fee</label>
+                        <label for="event-fee-structure">Fee structure</label>
                         <select id="event-fee-structure" class="event-fee">
                             <option value="10%">10% of Revenue</option>
                             <option value="10%+5%" selected="selected">10% &le; $500, 5% over $500</option>
@@ -156,7 +160,7 @@
                 </div>
                 <div class="table-row">
                     <div class="label" for="total-fee">Event Fee: </div>
-                    <div class="value" id="total-fee" value=''>$ 0.00</div>
+                    <div class="value fieldset-results" id="total-fee" value=''>$ 0.00</div>
                 </div>
             </fieldset>
             <fieldset id="commission-calculator" class="collapsible">
@@ -178,24 +182,21 @@
                     </select>
                 </div>
                 <div class="table-row">
-                    <div class="label" for="commission-earned">Commission: </div>
-                    <div class="value commission-calculator" id="commission-earned" value=''>$ 0.00</div>
+                    <div class="label" for="commission-earned">Commission </div>
+                    <div class="value commission-calculator fieldset-results" id="commission-earned" value=''>$ 0.00</div>
                 </div>
                 <div class="table-row">
-                    <div class="label" for="tip-earned">Tips: </div>
+                    <div class="label" for="tip-earned">Tips </div>
                     <div class="value commission-calculator" id="tip-earned" value=''>$ 0.00</div>
                 </div>
-                <div class="table-row">
-                    <div class="label" for="total-pay">Total Pay: </div>
-                    <div class="value" id="total-pay" value=''>$ 0.00</div>
-                </div>
+                <div class="table-results"><p>Total Pay</p><div id="total-pay" value=''>$ 0.00</div></div>
             </fieldset>
             <fieldset id="output">
                 <button type="button" id="print">Print</button>
                 <button type="button" id="email">Email</button>
             </fieldset>
-        </form>
-    </main>
+        </main>
+    </form>
     <script type="text/javascript" src="js/script.js?v=0"></script>
 </body>
 </html>
