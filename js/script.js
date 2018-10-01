@@ -26,6 +26,10 @@ const calculatorCashCollected = event => {
     //Updates the total sum
     updateCurrencyNodeAndValue('ending-cash-total', sum('.denomination-results'));
     calculatorCashEarned();
+
+    //Update Bill & Cash Totals
+    updateCurrencyNodeAndValue('bill-total', sum('.bills'));
+    updateCurrencyNodeAndValue('coin-total', sum('.coins'));
 }
 
 const calculatorCashEarned = () => {

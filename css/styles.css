@@ -14,7 +14,7 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(23rem, auto));
+    grid-template-columns: repeat(auto-fit, minmax(21rem, auto));
     justify-content: space-evenly;
 }
 
@@ -61,7 +61,7 @@ h1 {
 fieldset {
     border: none;
     padding: 0;
-    max-width: 22rem;
+    max-width: 20rem;
     margin: 0 auto;
 }
 
@@ -167,6 +167,11 @@ fieldset#details select {
 
 fieldset#details input {
     width: 11rem;
+}
+
+/* FORM #CASH */
+.table-row.register-totals {
+    grid-template-columns: 5rem 5rem 5rem 5rem;
 }
 
 /* FORM #OUTPUT */

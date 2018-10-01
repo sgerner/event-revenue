@@ -105,4 +105,8 @@
         justify-self: start;
         margin-left: 1rem;
     }
+
+    .register-totals {
+        display: none;
+    }
 }
