@@ -3,14 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <title>Event Revenue Worksheet</title>
     <meta name="description" content="Calculate Revenue from Special Event">
     <meta name="author" content="Steven Gerner">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
-    <script type="text/javascript" src="js/script.js?v=1.0"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 
@@ -22,7 +20,10 @@
             <fieldset id="details">
                 <div class="table-row">
                     <label for="event">Event</label>
-                    <input type="text" id="event">
+                    <select id="event">
+                        <option value="Roadrunner">Roadrunner Park</option>
+                        <option value="Uptown">Uptown Farmers Market</option>
+                    </select>
                 </div>
                 <div class="table-row">
                     <label for="date">Date</label>
@@ -47,73 +48,69 @@
                     </div>
                     <div class="table-row">
                         <label for="100">$100</label>
-                        <input type="number" id="100" onchange="total(event)" onkeyup="total(event)">
-                        <div id="100-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="100" class="denomination-input">
+                        <div id="100-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="50">$50</label>
-                        <input type="number" id="50" onchange="total(event)" onkeyup="total(event)">
-                        <div id="50-result" class="fieldset-results" name="denomination" value=""></div>
+                        <input type="number" id="50" class="denomination-input">
+                        <div id="50-result" class="fieldset-results denomination-results" value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="20">$20</label>
-                        <input type="number" id="20" onchange="total(event)" onkeyup="total(event)" autofocus>
-                        <div id="20-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="20" class="denomination-input" autofocus>
+                        <div id="20-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="10">$10</label>
-                        <input type="number" id="10" onchange="total(event)" onkeyup="total(event)">
-                        <div id="10-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="10" class="denomination-input">
+                        <div id="10-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="5">$5</label>
-                        <input type="number" id="5" onchange="total(event)" onkeyup="total(event)">
-                        <div id="5-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="5" class="denomination-input">
+                        <div id="5-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="1">$1</label>
-                        <input type="number" id="1" onchange="total(event)" onkeyup="total(event)">
-                        <div id="1-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="1" class="denomination-input">
+                        <div id="1-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.25">Quarter ($0.25)</label>
-                        <input type="number" id="0.25" onchange="total(event)" onkeyup="total(event)">
-                        <div id="0.25-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="0.25" class="denomination-input">
+                        <div id="0.25-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.50">Dime ($0.10)</label>
-                        <input type="number" id="0.10" onchange="total(event)" onkeyup="total(event)">
-                        <div id="0.10-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="0.10" class="denomination-input">
+                        <div id="0.10-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.05">Nickel ($0.05)</label>
-                        <input type="number" id="0.05" onchange="total(event)" onkeyup="total(event)">
-                        <div id="0.05-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="0.05" class="denomination-input">
+                        <div id="0.05-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.01">Penny ($0.01)</label>
-                        <input type="number" id="0.01" onchange="total(event)" onkeyup="total(event)">
-                        <div id="0.01-result" class="fieldset-results" name="denomination"  value=""></div>
+                        <input type="number" id="0.01" class="denomination-input">
+                        <div id="0.01-result" class="fieldset-results denomination-results"  value="">$0.00</div>
                     </div>
-                    <div class="table-results"><p>Total Cash in Register</p><div id="cash-total"></div></div>
+                    <div class="table-results"><p>Total Cash in Register</p><div id="ending-cash-total" class="cash-calculator" value="">0</div></div>
                 </div>
                 <div id="cash-modifiers">
                     <p class="instructions">Please enter your starting cash and any cash paid / removed prior to using this worksheet.</p>
-                    <div class="table-header">
-                        <div class="column-label">???</div>
-                        <div class="column-label">Total</div>
-                    </div>
                     <div class="table-row">
                         <label for="starting-cash">Starting Cash</label>
-                        <input type="number" id="starting-cash" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                        <input type="number" id="starting-cash" class="negative-value cash-calculator" placeholder="$0.00">
                     </div>
                     <div class="table-row">
                         <label for="cash-fee">Fees Paid in Cash</label>
-                        <input type="number" id="cash-fee" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                        <input type="number" id="cash-fee" class="cash-calculator" placeholder="$0.00">
                     </div>
                     <div class="table-row">
                         <label for="cash-other">Other Cash Expenses</label>
-                        <input type="number" id="cash-other" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                        <input type="number" id="cash-other" class="cash-calculator" placeholder="$0.00">
                     </div>
                 </div>
             </div>
@@ -127,35 +124,39 @@
                 </div>
                 <div class="table-row">
                     <label for="cash-total">Total Cash Payments</label>
-                    <div id="cash-total"></div>
+                    <div id="cash-total" class="total-calculator" value="0">$ 0.00</div>
                 </div>
                 <div class="table-row">
                     <label for="event-total">Event Payments (e.g. EBT)</label>
-                    <input type="number" id="event-total" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                    <input type="number" id="event-total" class='total-calculator' placeholder="$0.00">
+                </div>
+                <div class="table-row">
+                    <label for="card-payments">Card Payments</label>
+                    <input type="number" id="card-payments" class='total-calculator' placeholder="$0.00">
                 </div>
                 <div class="table-row">
                     <label for="card-tips">Card Tips</label>
-                    <input type="number" id="card-tips" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                    <input type="number" id="card-tips" class='commission-input' placeholder="$0.00">
                 </div>
-                <div class="table-row">
-                        <label for="card-payments">Card Payments</label>
-                        <input type="number" id="card-payments" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
-                    </div>
                 <div class="table-row">
                     <label for="pre-payments">Pre-Paid</label>
-                    <input type="number" id="pre-payments" onchange="total(event)" onkeyup="total(event)" placeholder="$0.00">
+                    <input type="number" id="pre-payments" class='total-calculator' placeholder="$0.00">
                 </div>
-                <div class="table-results"><p>Total Earned</p><div id="event-total"></div></div>
+                <div class="table-results"><p>Total Earned</p><div id="event-revenue" value=''>$ 0.00</div></div>
             </fieldset>
             <fieldset id="event-fee-calculator" class="collapsible">
                 <h2 class='section-header'>Event Fee</h2>
+                <p class="instructions">Please select a fee structure. This calculation does not take into consideration any minimum event fees that may apply.</p>
                 <div class="table-row">
-                    <div class="label" value="0.10">10% of Revenue</div>
-                    <div class="value"></div>
+                        <label for="event-fee-structure">Event Fee</label>
+                        <select id="event-fee-structure" class="event-fee">
+                            <option value="10%">10% of Revenue</option>
+                            <option value="10%+5%" selected="selected">10% &le; $500, 5% over $500</option>
+                        </select>
                 </div>
                 <div class="table-row">
-                    <div class="label">10% &le; $500, 5% over $500</div>
-                    <div class="value"></div>
+                    <div class="label" for="total-fee">Event Fee: </div>
+                    <div class="value" id="total-fee" value=''>$ 0.00</div>
                 </div>
             </fieldset>
             <fieldset id="commission-calculator" class="collapsible">
@@ -163,32 +164,30 @@
                 <p class="instructions">Calculates commission rate or guarenteed minimum, whichever is greater.</p>
                 <div class="table-row">
                     <label for="commission-rate">Commission Rate</label>
-                    <select id="commission-rate">
+                    <select id="commission-rate" class="commission-input">
                         <option value="0.20" selected="selected">20%</option>
                         <option value="0.25">25%</option>
                     </select>
                 </div>
                 <div class="table-row">
                     <label for="market-length">Market Length</label>
-                    <select id="market-length">
+                    <select id="market-length" class="commission-input">
                         <option value="3">3 Hours</option>
                         <option value="4">4 Hours</option>
                         <option value="5" selected="selected">5 Hours</option>
                     </select>
                 </div>
                 <div class="table-row">
-                    <div id="commission-earned">
-                        <div class="label">Commission: </div>
-                        <div class="value"></div>
-                    </div>
-                    <div id="tip-earned">
-                        <div class="label">Tips: </div>
-                        <div class="value"></div>                        
-                    </div>
-                    <div id="total-pay">
-                        <div class="label">Total Pay: </div>
-                        <div class="value"></div>
-                    </div>
+                    <div class="label" for="commission-earned">Commission: </div>
+                    <div class="value commission-calculator" id="commission-earned" value=''>$ 0.00</div>
+                </div>
+                <div class="table-row">
+                    <div class="label" for="tip-earned">Tips: </div>
+                    <div class="value commission-calculator" id="tip-earned" value=''>$ 0.00</div>
+                </div>
+                <div class="table-row">
+                    <div class="label" for="total-pay">Total Pay: </div>
+                    <div class="value" id="total-pay" value=''>$ 0.00</div>
                 </div>
             </fieldset>
             <fieldset id="output">
@@ -197,5 +196,6 @@
             </fieldset>
         </form>
     </main>
+    <script type="text/javascript" src="js/script.js?v=0"></script>
 </body>
 </html>
