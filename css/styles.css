@@ -9,15 +9,10 @@
 body {
     margin: 0;
     font-size: 16px;
-    /*background: url('../img/background.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
+    background: var(--color-neutral);
 }
 
 main {
-    background: var(--color-neutral);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(23rem, auto));
     justify-content: space-evenly;
@@ -101,6 +96,14 @@ input, select {
     font-size: 1.1rem;
     padding-left: 0.5rem;
     border: none;
+    transition: 400ms all ease-in;
+}
+
+input:hover, select:hover, input:focus, select:focus {
+    background: var(--color-emphasis);
+    color: black;
+    outline: 1px dashed var(--color-accent);
+    outline-offset: -0.35rem;
 }
 
 input {
@@ -158,6 +161,14 @@ fieldset#details .table-row {
     max-width: unset;
 }
 
+fieldset#details select {
+    width: 11.5rem;
+}
+
+fieldset#details input {
+    width: 11rem;
+}
+
 /* FORM #OUTPUT */
 fieldset#output {
     max-width: 100%;
@@ -186,4 +197,22 @@ fieldset#output button {
 fieldset#output button:hover {
     background: var(--color-dark);
     box-shadow: 0px 0px 0.5rem var(--color-accent);
+}
+
+/* CURRENCY SYMBOL */
+.currency-symbol {
+    position: relative;
+}
+
+.currency-symbol::after {
+    content: '$';
+    position: absolute;
+    right: 4.1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.currency-symbol input {
+    padding-left: 1.2rem;
+    width: 3.8rem;
 }

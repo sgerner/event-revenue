@@ -98,24 +98,24 @@
                         <input type="number" id="0.01" class="denomination-input">
                         <div id="0.01-result" class="fieldset-results denomination-results"  value="">$ 0.00</div>
                     </div>
-                    <div class="table-results"><p>Total Cash in Register</p><div id="ending-cash-total" class="cash-calculator" value="">0</div></div>
+                    <div class="table-results"><p>Cash in Register</p><div id="ending-cash-total" class="cash-calculator" value="">$ 0.00</div></div>
                 </div>
             </fieldset>
             <fieldset id='cash-changes'>
                 <div id="cash-modifiers">
                     <h2 class='section-header'>Cash In & Out</h2>
                     <p class="instructions">Please enter your starting cash and any cash paid / removed prior to using this worksheet.</p>
-                    <div class="table-row">
+                    <div class="table-row currency-symbol">
                         <label for="starting-cash">Starting Cash</label>
-                        <input type="number" id="starting-cash" class="negative-value cash-calculator" placeholder="$0.00">
+                        <input type="number" id="starting-cash" class="negative-value cash-calculator">
                     </div>
-                    <div class="table-row">
+                    <div class="table-row currency-symbol">
                         <label for="cash-fee">Fees Paid in Cash</label>
-                        <input type="number" id="cash-fee" class="cash-calculator" placeholder="$0.00">
+                        <input type="number" id="cash-fee" class="cash-calculator">
                     </div>
-                    <div class="table-row">
+                    <div class="table-row currency-symbol">
                         <label for="cash-other">Other Cash Expenses</label>
-                        <input type="number" id="cash-other" class="cash-calculator" placeholder="$0.00">
+                        <input type="number" id="cash-other" class="cash-calculator">
                     </div>
                 </div>
             </div>
@@ -131,21 +131,21 @@
                     <label for="cash-total">Total Cash Payments</label>
                     <div id="cash-total" class="fieldset-results total-calculator" value="0">$ 0.00</div>
                 </div>
-                <div class="table-row">
+                <div class="table-row currency-symbol">
                     <label for="event-total">Event Card (e.g. EBT)</label>
-                    <input type="number" id="event-total" class='total-calculator' placeholder="$0.00">
+                    <input type="number" id="event-total" class='total-calculator'>
                 </div>
-                <div class="table-row">
+                <div class="table-row currency-symbol">
                     <label for="card-payments">Card Payments</label>
-                    <input type="number" id="card-payments" class='total-calculator' placeholder="$0.00">
+                    <input type="number" id="card-payments" class='total-calculator'>
                 </div>
-                <div class="table-row">
+                <div class="table-row currency-symbol">
                     <label for="card-tips">Card Tips</label>
-                    <input type="number" id="card-tips" class='commission-input' placeholder="$0.00">
+                    <input type="number" id="card-tips" class='commission-input'>
                 </div>
-                <div class="table-row">
+                <div class="table-row currency-symbol">
                     <label for="pre-payments">Pre-Paid</label>
-                    <input type="number" id="pre-payments" class='total-calculator' placeholder="$0.00">
+                    <input type="number" id="pre-payments" class='total-calculator'>
                 </div>
                 <div class="table-results"><p>Revenue</p><div id="event-revenue" value=''>$ 0.00</div></div>
             </fieldset>
@@ -188,7 +188,7 @@
                 </div>
                 <div class="table-row">
                     <div class="label" for="tip-earned">Tips </div>
-                    <div class="value commission-calculator" id="tip-earned" value=''>$ 0.00</div>
+                    <div class="value commission-calculator fieldset-results" id="tip-earned" value=''>$ 0.00</div>
                 </div>
                 <div class="table-results"><p>Total Pay</p><div id="total-pay" value=''>$ 0.00</div></div>
             </fieldset>

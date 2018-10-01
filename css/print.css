@@ -13,6 +13,7 @@
 
     body {
         font-size: 12px;
+        background: none;
     }
 
     p.instructions {
@@ -27,7 +28,6 @@
     }
 
     main {
-        background: none;
         grid-template-columns: 20rem 20rem;
         grid-template-areas: "a b" "a c" "d c";
         align-items: start;
