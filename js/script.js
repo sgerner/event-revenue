@@ -9,7 +9,7 @@ const sum = selectorName => createArrayFromSelector(selectorName)
     /* Filter out values that are NaN */
     .filter(item => !!item)
     /* Sum all numbers in array */
-    .reduce(add);
+    .reduce(add, 0);
 
 const updateCurrencyNodeAndValue = (elementID, newValue) => {
     const element = document.getElementById(elementID);
@@ -17,67 +17,47 @@ const updateCurrencyNodeAndValue = (elementID, newValue) => {
     element.value = newValue.toFixed(2);
 }
 
-/* CALCULATOR FUNCTIONS */
-const calculatorCashCollected = event => {
-    //Updates the box next to each denomination with the sum for that denomination
-    const currencySum = document.getElementById(event.target.id).id * document.getElementById(event.target.id).value;
-    updateCurrencyNodeAndValue(event.target.id + '-result', currencySum);
-
-    //Updates the total sum
-    updateCurrencyNodeAndValue('ending-cash-total', sum('.denomination-results'));
-    calculatorCashEarned();
-
-    //Update Bill & Cash Totals
-    updateCurrencyNodeAndValue('bill-total', sum('.bills'));
-    updateCurrencyNodeAndValue('coin-total', sum('.coins'));
-}
-
-const calculatorCashEarned = () => {
-    updateCurrencyNodeAndValue('cash-total', sum('.cash-calculator'));
-    calculatorTotalEarned();
-}
-
-const calculatorTotalEarned = () => {
-    updateCurrencyNodeAndValue('event-revenue', sum('.total-calculator'));
-    calculatorEventFee();
-}
-
-const calculatorEventFee = () => {
+/* SPECIFIC CALCULATOR HELPER FUNCTIONS */
+const eventFee = () => {
     // Determines fee structure (flat 10% or 10% to $500) and calculates event fee
     const eventRevenue = document.getElementById('event-revenue').value;
-    if (eventRevenue <= 500 || document.getElementById('event-fee-structure').value == '10%') {
-        updateCurrencyNodeAndValue('total-fee', eventRevenue * 0.10);
-    } else {
-        updateCurrencyNodeAndValue('total-fee', 50 + ((eventRevenue - 500) * 0.05));
-    }
-    calculatorCommission();
+    return (document.getElementById('event-fee-structure').value == '10%')
+        ? eventRevenue * 0.10 : (eventRevenue <= 500) 
+            ? eventRevenue * 0.10 : 50 + ((eventRevenue - 500) * 0.05);
 }
 
-const calculatorCommission = () => {
+const commission = () => {
     const baseHourlyPay = 10;
     const commission = document.getElementById('event-revenue').value * document.getElementById('commission-rate').value;
     // Determine if commssion is higher than guarenteed hourly minimum
-    if (commission > document.getElementById('market-length').value * baseHourlyPay) {
-        updateCurrencyNodeAndValue('commission-earned', commission);
-    } else {
-        updateCurrencyNodeAndValue('commission-earned', document.getElementById('market-length').value * baseHourlyPay);
-    }
-    updateCurrencyNodeAndValue('tip-earned', Number(document.getElementById('card-tips').value));
-    updateCurrencyNodeAndValue('total-pay', sum('.commission-calculator'));
+    const marketLength = document.getElementById('market-length').value;
+    return (commission > marketLength * baseHourlyPay) ? commission : marketLength * baseHourlyPay;
+}
+
+/* CALCULATORS */
+const eventBasedCalculator = event => {
+    // Updates the box next to each denomination with the sum for that denomination
+    const currencySum = document.getElementById(event.target.id).id * document.getElementById(event.target.id).value;
+    updateCurrencyNodeAndValue(event.target.id + '-result', currencySum);
+    calculator();
+}
+
+const calculator = () => {
+    updateCurrencyNodeAndValue('bill-total', sum('.bills')); // Sum Bills in register
+    updateCurrencyNodeAndValue('coin-total', sum('.coins')); // Sum coins in register
+    updateCurrencyNodeAndValue('ending-cash-total', sum('.denomination-results')); // Sum total cash in register
+    updateCurrencyNodeAndValue('cash-total', sum('.cash-calculator')); // Calculate cash after modifiers
+    updateCurrencyNodeAndValue('event-revenue', sum('.total-calculator')); // Calculate event revenue with alternate payment
+    updateCurrencyNodeAndValue('total-fee', eventFee()); // Calculate event fee
+    updateCurrencyNodeAndValue('commission-earned', commission()); // Calculate commission
+    updateCurrencyNodeAndValue('tip-earned', Number(document.getElementById('card-tips').value)); // Clone tips
+    updateCurrencyNodeAndValue('total-pay', sum('.commission-calculator')); // Sum commission with modifiers
 }
 
 /* ON LOAD FUNCTIONS */
-const createEventListeners = (selectorName, callFunction) => {
-    createArrayFromSelector(selectorName).map(item => item.addEventListener('input', callFunction, false));
-}
-
 const eventListenerMap = [
-    {selector: '.denomination-input', function: calculatorCashCollected},
-    {selector: '.cash-calculator', function: calculatorCashEarned},
-    {selector: '.total-calculator', function: calculatorTotalEarned},
-    {selector: '.event-fee', function: calculatorEventFee},
-    {selector: '.commission-input', function: calculatorCommission}
-].map(item => createEventListeners(item.selector, item.function));
-
+    {selector: '.event-based-calculator', eventType: 'input', function: eventBasedCalculator},
+    {selector: '.calculator', eventType: 'input', function: calculator},
+].forEach(item => createArrayFromSelector(item.selector).forEach(elem => elem.addEventListener(item.eventType, item.function, false)));
 
 window.addEventListener('DOMContentLoaded', eventListenerMap, false);

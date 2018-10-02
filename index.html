@@ -50,154 +50,160 @@
                     </div>
                     <div class="table-row">
                         <label for="100">$100</label>
-                        <input type="number" id="100" class="denomination-input">
-                        <div id="100-result" class="fieldset-results denomination-results bills"  value="">$ 0.00</div>
+                        <input type="number" id="100" class="denomination-input event-based-calculator">
+                        <div id="100-result" class="fieldset-results denomination-results bills" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="50">$50</label>
-                        <input type="number" id="50" class="denomination-input">
-                        <div id="50-result" class="fieldset-results denomination-results bills" value="">$ 0.00</div>
+                        <input type="number" id="50" class="denomination-input event-based-calculator">
+                        <div id="50-result" class="fieldset-results denomination-results bills" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="20">$20</label>
-                        <input type="number" id="20" class="denomination-input" autofocus>
-                        <div id="20-result" class="fieldset-results denomination-results bills"  value="">$ 0.00</div>
+                        <input type="number" id="20" class="denomination-input event-based-calculator">
+                        <div id="20-result" class="fieldset-results denomination-results bills" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="10">$10</label>
-                        <input type="number" id="10" class="denomination-input">
-                        <div id="10-result" class="fieldset-results denomination-results bills"  value="">$ 0.00</div>
+                        <input type="number" id="10" class="denomination-input event-based-calculator">
+                        <div id="10-result" class="fieldset-results denomination-results bills" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="5">$5</label>
-                        <input type="number" id="5" class="denomination-input">
-                        <div id="5-result" class="fieldset-results denomination-results bills"  value="">$ 0.00</div>
+                        <input type="number" id="5" class="denomination-input event-based-calculator">
+                        <div id="5-result" class="fieldset-results denomination-results bills" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="1">$1</label>
-                        <input type="number" id="1" class="denomination-input">
-                        <div id="1-result" class="fieldset-results denomination-results bills"  value="">$ 0.00</div>
+                        <input type="number" id="1" class="denomination-input event-based-calculator">
+                        <div id="1-result" class="fieldset-results denomination-results bills" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.25">Quarter ($0.25)</label>
-                        <input type="number" id="0.25" class="denomination-input">
-                        <div id="0.25-result" class="fieldset-results denomination-results coins"  value="">$ 0.00</div>
+                        <input type="number" id="0.25" class="denomination-input event-based-calculator">
+                        <div id="0.25-result" class="fieldset-results denomination-results coins" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.50">Dime ($0.10)</label>
-                        <input type="number" id="0.10" class="denomination-input">
-                        <div id="0.10-result" class="fieldset-results denomination-results coins"  value="">$ 0.00</div>
+                        <input type="number" id="0.10" class="denomination-input event-based-calculator">
+                        <div id="0.10-result" class="fieldset-results denomination-results coins" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.05">Nickel ($0.05)</label>
-                        <input type="number" id="0.05" class="denomination-input">
-                        <div id="0.05-result" class="fieldset-results denomination-results coins"  value="">$ 0.00</div>
+                        <input type="number" id="0.05" class="denomination-input event-based-calculator">
+                        <div id="0.05-result" class="fieldset-results denomination-results coins" >$ 0.00</div>
                     </div>
                     <div class="table-row">
                         <label for="0.01">Penny ($0.01)</label>
-                        <input type="number" id="0.01" class="denomination-input">
-                        <div id="0.01-result" class="fieldset-results denomination-results coins"  value="">$ 0.00</div>
+                        <input type="number" id="0.01" class="denomination-input event-based-calculator">
+                        <div id="0.01-result" class="fieldset-results denomination-results coins" >$ 0.00</div>
                     </div>
                     <div class="table-row register-totals">
-                        <label for="bill-total">Bills</label>
-                        <div id="bill-total" class="fieldset-results"  value="">$ 0.00</div>
-                        <label for="coin-total">Coins</label>
-                        <div id="coin-total" class="fieldset-results"  value="">$ 0.00</div>
+                        <div class="label" for="bill-total">Bills</div>
+                        <div id="bill-total" class="fieldset-results" >$ 0.00</div>
+                        <div class="label" for="coin-total">Coins</div>
+                        <div id="coin-total" class="fieldset-results" >$ 0.00</div>
                     </div>
-                    <div class="table-results"><p>Cash in Register</p><div id="ending-cash-total" class="cash-calculator" value="">$ 0.00</div></div>
+                    <div class="table-results">
+                        <p>Cash in Register</p>
+                        <div id="ending-cash-total" class="cash-calculator" >$ 0.00</div>
+                    </div>
                 </div>
             </fieldset>
-            <fieldset id='cash-changes'>
-                <div id="cash-modifiers">
-                    <h2 class='section-header'>Cash In & Out</h2>
-                    <p class="instructions">Please enter your starting cash and any cash paid / removed prior to using this worksheet.</p>
-                    <div class="table-row currency-symbol">
-                        <label for="starting-cash">Starting Cash</label>
-                        <input type="number" id="starting-cash" class="negative-value cash-calculator">
+            <div class="grid-wrapper">
+                <fieldset id='cash-changes'>
+                    <div id="cash-modifiers">
+                        <h2 class='section-header'>Cash In & Out</h2>
+                        <p class="instructions">Please enter your starting cash and any cash paid / removed prior to using this worksheet.</p>
+                        <div class="table-row currency-symbol">
+                            <label for="starting-cash">Starting Cash</label>
+                            <input type="number" id="starting-cash" class="negative-value cash-calculator calculator">
+                        </div>
+                        <div class="table-row currency-symbol">
+                            <label for="cash-fee">Fees Paid in Cash</label>
+                            <input type="number" id="cash-fee" class="cash-calculator calculator">
+                        </div>
+                        <div class="table-row currency-symbol">
+                            <label for="cash-other">Other Cash Expenses</label>
+                            <input type="number" id="cash-other" class="cash-calculator calculator">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset id="other-collected">
+                    <h2 class='section-header'>All Payments</h2>
+                    <p class="instructions">Please enter the total collected for each type of payment.</p>
+                    <div class="table-header">
+                        <div class="column-label">Payment Method</div>
+                        <div class="column-label">Total</div>
+                    </div>
+                    <div class="table-row">
+                        <label for="cash-total">Total Cash Payments</label>
+                        <div id="cash-total" class="fieldset-results total-calculator calculator">$ 0.00</div>
                     </div>
                     <div class="table-row currency-symbol">
-                        <label for="cash-fee">Fees Paid in Cash</label>
-                        <input type="number" id="cash-fee" class="cash-calculator">
+                        <label for="event-total">Event Card (e.g. EBT)</label>
+                        <input type="number" id="event-total" class='total-calculator calculator'>
                     </div>
                     <div class="table-row currency-symbol">
-                        <label for="cash-other">Other Cash Expenses</label>
-                        <input type="number" id="cash-other" class="cash-calculator">
+                        <label for="card-payments">Card Payments</label>
+                        <input type="number" id="card-payments" class='total-calculator calculator'>
                     </div>
-                </div>
+                    <div class="table-row currency-symbol">
+                        <label for="card-tips">Card Tips</label>
+                        <input type="number" id="card-tips" class='commission-input calculator'>
+                    </div>
+                    <div class="table-row currency-symbol">
+                        <label for="pre-payments">Pre-Paid</label>
+                        <input type="number" id="pre-payments" class='total-calculator calculator'>
+                    </div>
+                    <div class="table-results"><p>Revenue</p><div id="event-revenue" class="calculator">$ 0.00</div></div>
+                </fieldset>
             </div>
-            </fieldset>
-            <fieldset id="other-collected">
-                <h2 class='section-header'>All Payments</h2>
-                <p class="instructions">Please enter the total collected for each type of payment.</p>
-                <div class="table-header">
-                    <div class="column-label">Payment Method</div>
-                    <div class="column-label">Total</div>
-                </div>
-                <div class="table-row">
-                    <label for="cash-total">Total Cash Payments</label>
-                    <div id="cash-total" class="fieldset-results total-calculator" value="0">$ 0.00</div>
-                </div>
-                <div class="table-row currency-symbol">
-                    <label for="event-total">Event Card (e.g. EBT)</label>
-                    <input type="number" id="event-total" class='total-calculator'>
-                </div>
-                <div class="table-row currency-symbol">
-                    <label for="card-payments">Card Payments</label>
-                    <input type="number" id="card-payments" class='total-calculator'>
-                </div>
-                <div class="table-row currency-symbol">
-                    <label for="card-tips">Card Tips</label>
-                    <input type="number" id="card-tips" class='commission-input'>
-                </div>
-                <div class="table-row currency-symbol">
-                    <label for="pre-payments">Pre-Paid</label>
-                    <input type="number" id="pre-payments" class='total-calculator'>
-                </div>
-                <div class="table-results"><p>Revenue</p><div id="event-revenue" value=''>$ 0.00</div></div>
-            </fieldset>
-            <fieldset id="event-fee-calculator" class="collapsible">
-                <h2 class='section-header'>Event Fee</h2>
-                <p class="instructions">Please select a fee structure. This calculation does not take into consideration any minimum event fees that may apply.</p>
-                <div class="table-row">
-                        <label for="event-fee-structure">Fee structure</label>
-                        <select id="event-fee-structure" class="event-fee">
-                            <option value="10%">10% of Revenue</option>
-                            <option value="10%+5%" selected="selected">10% &le; $500, 5% over $500</option>
+            <div class="grid-wrapper grid-c">
+                <fieldset id="event-fee-calculator" class="collapsible">
+                    <h2 class='section-header'>Event Fee</h2>
+                    <p class="instructions">Please select a fee structure. This calculation does not take into consideration any minimum event fees that may apply.</p>
+                    <div class="table-row">
+                            <label for="event-fee-structure">Fee structure</label>
+                            <select id="event-fee-structure" class="event-fee calculator">
+                                <option value="10%">10% of Revenue</option>
+                                <option value="10%+5%" selected="selected">10% &le; $500, 5% over $500</option>
+                            </select>
+                    </div>
+                    <div class="table-row">
+                        <div class="label" for="total-fee">Event Fee: </div>
+                        <div class="value fieldset-results" id="total-fee">$ 0.00</div>
+                    </div>
+                </fieldset>
+                <fieldset id="commission-calculator" class="collapsible">
+                    <h2 class='section-header'>Commission</h2>
+                    <p class="instructions">Calculates commission rate or guarenteed minimum, whichever is greater.</p>
+                    <div class="table-row">
+                        <label for="commission-rate">Commission Rate</label>
+                        <select id="commission-rate" class="commission-input calculator">
+                            <option value="0.20" selected="selected">20%</option>
+                            <option value="0.25">25%</option>
                         </select>
-                </div>
-                <div class="table-row">
-                    <div class="label" for="total-fee">Event Fee: </div>
-                    <div class="value fieldset-results" id="total-fee" value=''>$ 0.00</div>
-                </div>
-            </fieldset>
-            <fieldset id="commission-calculator" class="collapsible">
-                <h2 class='section-header'>Commission</h2>
-                <p class="instructions">Calculates commission rate or guarenteed minimum, whichever is greater.</p>
-                <div class="table-row">
-                    <label for="commission-rate">Commission Rate</label>
-                    <select id="commission-rate" class="commission-input">
-                        <option value="0.20" selected="selected">20%</option>
-                        <option value="0.25">25%</option>
-                    </select>
-                </div>
-                <div class="table-row">
-                    <label for="market-length">Market Length</label>
-                    <select id="market-length" class="commission-input">
-                        <option value="3">3 Hours</option>
-                        <option value="4">4 Hours</option>
-                        <option value="5" selected="selected">5 Hours</option>
-                    </select>
-                </div>
-                <div class="table-row">
-                    <div class="label" for="commission-earned">Commission </div>
-                    <div class="value commission-calculator fieldset-results" id="commission-earned" value=''>$ 0.00</div>
-                </div>
-                <div class="table-row">
-                    <div class="label" for="tip-earned">Tips </div>
-                    <div class="value commission-calculator fieldset-results" id="tip-earned" value=''>$ 0.00</div>
-                </div>
-                <div class="table-results"><p>Total Pay</p><div id="total-pay" value=''>$ 0.00</div></div>
-            </fieldset>
+                    </div>
+                    <div class="table-row">
+                        <label for="market-length">Market Length</label>
+                        <select id="market-length" class="commission-input calculator">
+                            <option value="3">3 Hours</option>
+                            <option value="4">4 Hours</option>
+                            <option value="5" selected="selected">5 Hours</option>
+                        </select>
+                    </div>
+                    <div class="table-row">
+                        <div class="label" for="commission-earned">Commission </div>
+                        <div class="value commission-calculator fieldset-results" id="commission-earned" value='0'>$ 0.00</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="label" for="tip-earned">Tips </div>
+                        <div class="value commission-calculator fieldset-results" id="tip-earned" value='0'>$ 0.00</div>
+                    </div>
+                    <div class="table-results"><p>Total Pay</p><div id="total-pay" value='0'>$ 0.00</div></div>
+                </fieldset>
+            </div>
             <fieldset id="output">
                 <a type="button" id="print" href="javascript:window.print()">Print</a>
                 <a type="button" id="reset" href="javascript:document.getElementById('event-revenue-worksheet').reset()">Clear Form</a>
