@@ -63,7 +63,7 @@ h1 {
 fieldset {
     padding: 1rem;
     max-width: 20rem;
-    margin: 2rem auto 2rem auto;
+    margin: 1rem auto;
     border: 1px solid #bbb;
     background: #ddd;
 }
@@ -182,13 +182,10 @@ fieldset#details input {
 /* FORM #OUTPUT */
 fieldset#output {
     max-width: 100%;
-    background: var(--color-emphasis);
+    background: #ddd;
     width: 100%;
     align-self: start;
     padding: 0.25rem 0;
-    margin-top: 1.25rem;
-    border-radius: 5px;
-    align-self: center;
 }
 
 fieldset#output button, fieldset#output a {
