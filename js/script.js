@@ -73,7 +73,7 @@ const createEventListeners = (selectorName, callFunction) => {
 
 const eventListenerMap = [
     {selector: '.denomination-input', function: calculatorCashCollected},
-    {selector:'.cash-calculator', function: calculatorCashEarned},
+    {selector: '.cash-calculator', function: calculatorCashEarned},
     {selector: '.total-calculator', function: calculatorTotalEarned},
     {selector: '.event-fee', function: calculatorEventFee},
     {selector: '.commission-input', function: calculatorCommission}
