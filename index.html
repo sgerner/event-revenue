@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <form>
+    <form id='event-revenue-worksheet'>
         <div id="head">
             <h1 class="title">Event Revenue Worksheet</h1>
             <fieldset id="details">
@@ -199,8 +199,8 @@
                 <div class="table-results"><p>Total Pay</p><div id="total-pay" value=''>$ 0.00</div></div>
             </fieldset>
             <fieldset id="output">
-                <button type="button" id="print">Print</button>
-                <button type="button" id="email">Email</button>
+                <a type="button" id="print" href="javascript:window.print()">Print</a>
+                <a type="button" id="reset" href="javascript:document.getElementById('event-revenue-worksheet').reset()">Clear Form</a>
             </fieldset>
         </main>
     </form>
