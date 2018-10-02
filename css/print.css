@@ -28,9 +28,10 @@
     }
 
     main {
-        grid-template-columns: 20rem 20rem;
-        grid-template-areas: "a b" "a c" "d c";
-        align-items: start;
+        grid-template-columns: 24rem 24rem;
+        grid-template-areas: "a b" "a b" "c c";
+        align-items: center;
+        justify-content: space-evenly;
     }
 
     fieldset {
@@ -54,7 +55,7 @@
         display: none;
     }
 
-    fieldset#commission-calculator {
+    .grid-c {
         grid-area: c;
     }
 
